@@ -18,6 +18,8 @@ public class Controller {
         return new BaseResponse(SUCCESS_STATUS, 1);
     }
 
+
+
     @PostMapping("/pay")
     public BaseResponse pay(@RequestParam(value = "key") String key, @RequestBody PaymentRequest request) {
 
@@ -35,5 +37,13 @@ public class Controller {
             response = new BaseResponse(ERROR_STATUS, AUTH_FAILURE);
         }
         return response;
+    }
+
+    @GetMapping ("/gimme")
+    public String BaseResponse2 () {
+
+        String response = "new BaseResponse2(ERROR_STATUS, AUTH_FAILURE)";
+        return response;
+
     }
 }
