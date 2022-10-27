@@ -1,4 +1,4 @@
-package stringBoot;
+package springBoot;
 
 import org.springframework.web.bind.annotation.*;
 

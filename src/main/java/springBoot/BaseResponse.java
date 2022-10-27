@@ -1,4 +1,4 @@
-package stringBoot;
+package springBoot;
 
 
 public class BaseResponse {
