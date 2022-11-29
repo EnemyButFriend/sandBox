@@ -1,18 +1,17 @@
 package deleteString;
 
-import javax.management.StringValueExp;
 import java.io.*;
 import java.io.IOException;
 
 
-public class Main {
-
+public class DeleteUsedData {
+    public static String filePath = "src/main/resources/data2.properties";
     public static void main(String[] args) throws IOException {
-        removeLine(6);
+        removeLine(filePath, 1);
     }
-    public static void removeLine(int deleteLine){
-        String tempFile = "src/main/resources/temp.properties";
-        File oldFile = new File("src/main/resources/data2.properties");
+    public static void removeLine(String filePath, int deleteLine){
+        String tempFile = "temp.properties";
+        File oldFile = new File(filePath);
         File newFile = new File(tempFile);
         int line = 0;
         String currentLine;
@@ -22,7 +21,7 @@ public class Main {
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
 
-            FileReader fr = new FileReader("src/main/resources/data2.properties");
+            FileReader fr = new FileReader(filePath);
             BufferedReader br = new BufferedReader(fr);
 
             while ((currentLine = br.readLine()) != null)
