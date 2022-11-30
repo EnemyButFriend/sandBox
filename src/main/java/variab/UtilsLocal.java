@@ -1,11 +1,10 @@
 package variab;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
 
@@ -27,6 +26,22 @@ public class UtilsLocal {
         for(int i = 0; i < num; i++)
             stringBuilder.append(numbers.charAt(random.nextInt(numbers.length())));
         return stringBuilder.toString();
+    }
+    public static void   ListToFile (List<String> listName, String outputFile) throws IOException {
+        FileWriter writer = new FileWriter(outputFile);
+        for(String str: listName) {
+            writer.write(str + System.lineSeparator());
+        }
+        writer.close();
+
+    }
+    public static void   ListToFile2 (List<String> listName, String outputFile) {
+    Path output = Paths.get(outputFile);
+        try {
+            Files.write(output, listName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 //    public static void readResources(String pathResourcesIn, List<String> listOut) {

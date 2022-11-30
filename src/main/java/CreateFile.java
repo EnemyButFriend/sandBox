@@ -18,8 +18,9 @@ public class CreateFile {
 
     public static void main(String[] args) throws IOException {
         List <String> myList = createList();
+        String outputFile = "output.txt";
         System.out.println(myList);
-        ListToFile(myList);
+        UtilsLocal.ListToFile(myList, outputFile);
 
     }
 
@@ -69,24 +70,5 @@ public class CreateFile {
         }
         return list;
     }
-
-
-
-    private static void   ListToFile (List<String> listName) throws IOException {
-    FileWriter writer = new FileWriter("output.txt");
-     for(String str: listName) {
-        writer.write(str + System.lineSeparator());
-    }
-    writer.close();
-
-    }
-//    private static void   ListToFile2 (List<String> listName) {
-//    Path output = Paths.get("output.txt");
-//        try {
-//            Files.write(output, listName);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
 }
