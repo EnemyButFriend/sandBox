@@ -7,7 +7,7 @@ import variab.UtilsLocal;
 
 import static variab.Numeric.randomNumber;
 
-public class GenFile {
+public class GenList {
 
     private static String ctlLoading = randomNumber(8);
 
