@@ -16,9 +16,9 @@ public class CreateListPostgreSql {
     private static String bdUrl = "jdbc:postgresql://localhost:5432/demo";
     private static String user = "postgres";
     private static String password = "password";
-    private static String outputFile = "outputFromBD.txt";
+
     private static String sqlQuery = "select * from boarding_passes order by ticket_no limit 50000;";
-    public static void createList() throws SQLException {
+    public static List<String> createList() throws SQLException {
 
         Connection c = connectToBD(bdUrl,user, password);
         Statement stmt = null;
@@ -38,16 +38,12 @@ public class CreateListPostgreSql {
             list.add(string);
         }
 
-        try {
-            ListToFile(list, outputFile);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 //        System.out.println(list);
         rs.close();
         stmt.close();
         c.close();
         System.out.println("Operation done successfully");
 
+        return list;
     }
 }
