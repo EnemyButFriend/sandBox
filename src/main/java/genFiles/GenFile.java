@@ -5,9 +5,11 @@ import java.util.List;
 
 import variab.UtilsLocal;
 
+import static variab.Numeric.randomNumber;
+
 public class GenFile {
 
-    private static String ctlLoading = UtilsLocal.randomNumber(8);
+    private static String ctlLoading = randomNumber(8);
 
     public static void main(String[] args) {
         System.out.println(createParentList());
