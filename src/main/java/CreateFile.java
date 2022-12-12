@@ -1,15 +1,11 @@
-import variab.UtilsLocal;
+import service.Utils;
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static variab.UtilsLocal.readFile;
+import static service.Utils.readFile;
 
 public class CreateFile {
 
@@ -20,7 +16,7 @@ public class CreateFile {
         List <String> myList = createList();
         String outputFile = "output.txt";
         System.out.println(myList);
-        UtilsLocal.ListToFile(myList, outputFile);
+        Utils.ListToFile(myList, outputFile);
 
     }
 

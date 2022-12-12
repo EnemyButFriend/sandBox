@@ -1,4 +1,4 @@
-package variab;
+package service;
 
 import java.util.Random;
 

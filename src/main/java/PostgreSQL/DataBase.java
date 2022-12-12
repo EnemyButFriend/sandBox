@@ -1,4 +1,4 @@
-package variab;
+package PostgreSQL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

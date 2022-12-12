@@ -3,9 +3,7 @@ package genFiles;
 import java.util.ArrayList;
 import java.util.List;
 
-import variab.UtilsLocal;
-
-import static variab.Numeric.randomNumber;
+import static service.Numeric.randomNumber;
 
 public class GenList {
 
