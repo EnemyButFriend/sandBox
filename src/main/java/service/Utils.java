@@ -38,7 +38,7 @@ public class Utils {
                                        String fifthColumn, String sixthColumn, String seventhColumn, String eighthColumn, String ninthColumn, String tenthColumn) {
         StringBuilder stringBuilder = new StringBuilder();
         String string = String.valueOf(stringBuilder.append((
-                firstColumn + "|" +
+                firstColumn + "," +
                         secondColumn + "," +
                         thirdColumn + "," +
                         forthColumn + "," +
