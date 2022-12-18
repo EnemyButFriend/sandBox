@@ -11,21 +11,24 @@ import static PostgreSQL.DataBase.connectToBD;
 import static service.Utils.createString;
 
 public class CreateListPostgreSql {
-    private static String bdUrl = "jdbc:postgresql://localhost:5432/demo";
-    private static String user = "postgres";
-    private static String password = "password";
 
-    private static String sqlQuery = "select * from boarding_passes order by ticket_no limit 50000;";
-    public static List<String> createList() throws SQLException {
+    Statement stmt;
+    private final Connection connection;
+    private static String SQL_QUERY = "select * from boarding_passes order by ticket_no limit 50000;";
 
-        Connection c = connectToBD(bdUrl,user, password);
-        Statement stmt = null;
+    public CreateListPostgreSql(String bdUrl, String user, String password) throws SQLException {
 
-        stmt = c.createStatement();
-        ResultSet rs = stmt.executeQuery(sqlQuery);
+        connection = connectToBD(bdUrl,user, password);
+        stmt = connection.createStatement();
 
+    }
+
+
+    public List<String> createList() throws SQLException {
 
         List<String> list = new ArrayList<>();
+        ResultSet rs = stmt.executeQuery(SQL_QUERY);
+
 
         while (rs.next()) {
             String ticket_no = rs.getString("ticket_no");
@@ -37,11 +40,22 @@ public class CreateListPostgreSql {
         }
 
 //        System.out.println(list);
+//        Переделать на логирование, коннект через мавен, переменные через пропети.
+//        Прислать МНТ Косте.
+//        Узнать агенты мониторинга на серверах.
+//        Собрать метрики в дашборд.
+//        Кафка тулл. Подключиться к конфигурации БД чере SpringBoot.
+
+
         rs.close();
-        stmt.close();
-        c.close();
-        System.out.println("Operation done successfully");
 
         return list;
     }
+    public void closeConnection () throws SQLException {
+        connection.close();
+    }
+    public void closeStatement () throws SQLException {
+        stmt.close();
+    }
+
 }
